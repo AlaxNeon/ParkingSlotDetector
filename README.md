@@ -1,6 +1,7 @@
 # ParkingSlotDetector_PointLabeling
 
 This is an OpenCV-based project to detect the occupancy status of parking slots in a parking place using YOLOv8 and point-based annotations.
+However, it is not 100% accurate with the given image, as this model lacks Occlusion Reasoning.
 
 ## Steps to Get the Project Running
 
@@ -22,15 +23,15 @@ Organize your project directory as follows:
 ```
 ParkingSlotDetector_PointLabeling/
 +-- images/                  # Contains input parking lot image(s)
-¦   +-- parking_lot.png
+Â¦   +-- parking_lot.png
 +-- annotations/             # Contains the exported CSV annotation file
-¦   +-- slot_points.csv
+Â¦   +-- slot_points.csv
 +-- models/                  # Contains your YOLOv8 model
-¦   +-- yolov8_model.pt
+Â¦   +-- yolov8_model.pt
 +-- output/                  # Will contain the output images and results
 +-- src/
-¦   +-- detect_slots.py      # Main detection script
-¦   +-- utils.py             # Utility to load annotations
+Â¦   +-- detect_slots.py      # Main detection script
+Â¦   +-- utils.py             # Utility to load annotations
 ```
 
 ### Step 4:  
