@@ -1,4 +1,4 @@
-# ParkingSlotDetector_PointLabeling
+# ParkingSlotDetector
 
 This is an OpenCV-based project to detect the occupancy status of parking slots in a parking place using YOLOv8 and point-based annotations.
 
