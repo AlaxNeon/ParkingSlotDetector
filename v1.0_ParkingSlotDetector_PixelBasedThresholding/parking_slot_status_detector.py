@@ -27,12 +27,22 @@ with open('parking_slots', 'rb') as f:
 
 # === Image Processing ===
 imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.imwrite(os.path.join(output_dir, "gray.png"), imgGray)
+
 imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
+cv2.imwrite(os.path.join(output_dir, "blurred.png"), imgBlur)
+
 imgThres = cv2.adaptiveThreshold(imgBlur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
                                  cv2.THRESH_BINARY_INV, val1, val2)
+cv2.imwrite(os.path.join(output_dir, "thresholded.png"), imgThres)
+
 imgThres = cv2.medianBlur(imgThres, val3)
+cv2.imwrite(os.path.join(output_dir, "median_blur.png"), imgThres)
+
 kernel = np.ones((3, 3), np.uint8)
 imgThres = cv2.dilate(imgThres, kernel, iterations=1)
+cv2.imwrite(os.path.join(output_dir, "dilated.png"), imgThres)
+
 
 # === Check Parking Slots ===
 spaces = 0
