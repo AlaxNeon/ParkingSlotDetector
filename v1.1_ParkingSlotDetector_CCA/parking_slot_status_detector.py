@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import pandas as pd
 import os
+import cvzone
 import csv
 
 # === PARAMETERS ===
@@ -87,6 +88,15 @@ for _, row in slot_data.iterrows():
         occupied_slots.append(sid)
     else:
         free_slots.append(sid)
+
+# === Count Summary ===
+total_slots = len(occupied_slots) + len(free_slots)
+occupied_count = len(occupied_slots)
+free_count = len(free_slots)
+
+# === Overlay Summary Text ===
+summary_text = f"Free: {free_count}/{total_slots}"
+cvzone.putTextRect(final_img, summary_text, (40, 50), thickness=3, offset=10, colorR=(0, 200, 0))
 
 # === Save Final Annotated Image ===
 cv2.imwrite("output/parking_slot_status.png", final_img)
